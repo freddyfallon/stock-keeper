@@ -1,0 +1,24 @@
+version: '3'
+services:
+  stock-keeper:
+    image: stock-keeper
+    build: .
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/app/
+    ports:
+      - "3000:3000"
+      - "3010:3010"
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: chillboy
+      POSTGRES_PASSWORD: chillboy
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
