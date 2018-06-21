@@ -13,8 +13,6 @@ const server = new GraphQLServer({
   resolvers
 });
 
-
-
 server
   .start({
     port: PORT,
