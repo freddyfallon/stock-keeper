@@ -8,25 +8,22 @@
     "test-ci": "./node_modules/.bin/jest"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
     "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+      "^.+\\.tsx?$": "ts-jest"
     },
-    "testMatch": [
-      "**/*.test.(ts|tsx)"
-    ]
+    "globalSetup": "./jest.config.js",
+    "collectCoverage": true
   },
   "license": "MIT",
   "dependencies": {
+    "@types/jest": "^23.1.1",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "graphql-yoga": "^1.14.10",
     "jest": "^23.1.0",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.9.2"
   },
   "babel": {
     "presets": [
