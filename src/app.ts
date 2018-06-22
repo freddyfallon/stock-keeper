@@ -4,12 +4,14 @@ const { PORT = 3010 } = process.env;
 
 const resolvers = {
   Query: {
-    hello: (source, args, ctx) => `Hello ${args.name || 'World'}`,
+    hello: (source: any, args: any, ctx: any) => {
+      return `Hello ${args.name || 'World'}`
+    },
   }
 }
 
 const server = new GraphQLServer({
-  typeDefs: './schema.graphql',
+  typeDefs: __dirname + '/schema.graphql',
   resolvers
 });
 

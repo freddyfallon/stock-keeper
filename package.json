@@ -2,7 +2,7 @@
   "name": "stock-keeper",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon ./src/app.ts --exec babel-node",
+    "start": "nodemon",
     "compile": "tsc --noEmit",
     "test": "./node_modules/.bin/jest --watchAll",
     "test-ci": "./node_modules/.bin/jest"
@@ -23,11 +23,17 @@
     "jest": "^23.1.0",
     "nodemon": "^1.17.5",
     "ts-jest": "^22.4.6",
+    "ts-node": "^6.1.2",
     "typescript": "^2.9.2"
   },
   "babel": {
     "presets": [
       "env"
     ]
+  },
+  "nodemonConfig" : {
+    "watch": ["**/*.ts", "**/*.json", "**/*.js"],
+    "ignore": ["**/*.test.ts"],
+    "exec": "ts-node ./src/app.ts"
   }
 }
