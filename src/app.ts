@@ -1,25 +1,14 @@
 import { GraphQLServer } from 'graphql-yoga';
 import helmet from 'helmet';
+import server from './server';
 
 const { PORT = 3010 } = process.env;
 
-const resolvers = {
-  Query: {
-    hello: (source: any, args: any, ctx: any) => {
-      return `Hello ${args.name || 'World'}`
-    },
-  }
-}
-
-const server = new GraphQLServer({
-  typeDefs: __dirname + '/schema.graphql',
-  resolvers
-});
 server.express.use(helmet());
 
 server
   .start({
-    port: PORT,
+    port: PORT
   })
   .then(http => {
     console.log(`GraphQL-server running on http://localhost:${PORT}`);
