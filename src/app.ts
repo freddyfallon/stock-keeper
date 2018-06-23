@@ -1,4 +1,5 @@
 import { GraphQLServer } from 'graphql-yoga';
+import helmet from 'helmet';
 
 const { PORT = 3010 } = process.env;
 
@@ -14,6 +15,7 @@ const server = new GraphQLServer({
   typeDefs: __dirname + '/schema.graphql',
   resolvers
 });
+server.express.use(helmet());
 
 server
   .start({
