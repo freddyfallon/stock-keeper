@@ -16,8 +16,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@types/dotenv": "^4.0.3",
     "@types/helmet": "^0.0.38",
     "babel-preset-env": "^1.7.0",
+    "dotenv": "^6.0.0",
     "graphql-yoga": "^1.14.10",
     "helmet": "^3.12.1"
   },

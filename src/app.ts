@@ -1,6 +1,8 @@
 import { GraphQLServer } from 'graphql-yoga';
 import helmet from 'helmet';
 import server from './server';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const { PORT = 3000 } = process.env;
 
