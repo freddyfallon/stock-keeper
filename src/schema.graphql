@@ -1,3 +1,13 @@
 type Query {
   hello(name: String): String!
 }
+
+type Mutation {
+  create(item: String!, quantity: Int!): Item!
+}
+
+type Item {
+  id: ID!
+  item: String!
+  quantity: Int!
+}

@@ -1,7 +1,10 @@
 import nock from 'nock';
 import request from 'request-promise-native';
 import { promisify } from 'util';
-import server from './server';
+import { exec as callbackExec } from 'child_process';
+import server from '../../src/server';
+
+const exec = promisify(callbackExec);
 
 let uri: string;
 let http: any;
@@ -30,7 +33,22 @@ export default {
       resolveWithFullResponse: true
     });
     return res;
+  },
+  setUpDb: async (next: any) => {
+    try {
+      await exec(`createdb testdb`);
+      await exec(`psql --file ${__dirname}/testdb.sql`);
+    } catch (err) {
+      console.error(`There was an error: ${err}`);
+    }
+    next();
+  },
+  cleanDb: async (next: any) => {
+    try {
+      await exec(`dropdb testdb`);
+    } catch (err) {
+      console.error(`There was an error with cleanup: ${err}`);
+    }
+    next();
   }
 };
-
-export const startServer = async () => {};
