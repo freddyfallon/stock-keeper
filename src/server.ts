@@ -1,11 +1,9 @@
 import { GraphQLServer } from 'graphql-yoga';
 
-const resolvers = {
-  Query: {
-    hello: (source: any, args: any, ctx: any) => {
-      return `Hello ${args.name || 'World'}`;
-    }
-  }
+import Mutation from './resolvers/Mutation';
+
+const resolvers: any = {
+  Mutation
 };
 
 export default new GraphQLServer({

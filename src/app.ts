@@ -17,10 +17,10 @@ server
   .start({
     port: PORT
   })
-  .then(http => {
+  .then(() => {
     console.log(`GraphQL-server running on http://localhost:${PORT}`);
   })
-  .catch(err => {
+  .catch((err: any) => {
     console.error('Server start failed', err);
     process.exit(1);
   });
