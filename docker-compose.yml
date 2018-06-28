@@ -20,3 +20,5 @@ services:
       POSTGRES_PASSWORD: coolpw
       POSTGRES_DB: stockkeeper
       # POSTGRES_PORT: 5432
+    volumes:
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql

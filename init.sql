@@ -1,0 +1,1 @@
+CREATE TABLE stock(id SERIAL PRIMARY KEY, item VARCHAR(40) not null, quantity INTEGER)
