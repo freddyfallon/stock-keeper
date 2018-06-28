@@ -2,7 +2,7 @@ import { GraphQLServer } from 'graphql-yoga';
 import helmet from 'helmet';
 import server from './server';
 
-const { PORT = 3010 } = process.env;
+const { PORT = 3000 } = process.env;
 
 server.express.use(helmet());
 
