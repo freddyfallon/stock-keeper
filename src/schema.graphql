@@ -3,7 +3,7 @@ type Query {
 }
 
 type Mutation {
-  create(item: String!, quantity: Int!): Item!
+  add(item: String!, quantity: Int!): Item!
 }
 
 type Item {

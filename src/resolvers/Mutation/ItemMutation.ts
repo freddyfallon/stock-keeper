@@ -1,20 +1,9 @@
-import { pool } from '../../database';
+import { pool } from '../../database/postgres/connect';
 
-const create = async (_: any, args: any, ctx: any) => {
-  const { item, quantity } = args;
-  try {
-    const query = {
-      text:
-        'INSERT INTO stock (item, quantity) VALUES ($1, $2) RETURNING id, item, quantity',
-      values: [item, quantity]
-    };
-    const {
-      rows: [newItem]
-    } = await pool.query(query);
-    return newItem;
-  } catch (err) {
-    throw new Error(err);
+import { constants } from '../../constants';
+
+export default (database: any) => ({
+  add: (source: any, args: any, ctx: any) => {
+    return database.add(constants.MODELNAME, args.item, args.quantity);
   }
-};
-
-export { create };
+});
