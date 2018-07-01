@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import server from './server';
 import dotenv from 'dotenv';
 
-import { checkDbConnection } from './database';
+import { checkDbConnection } from './database/postgres/connect';
 
 dotenv.config();
 

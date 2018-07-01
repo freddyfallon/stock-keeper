@@ -11,6 +11,7 @@ let http: any;
 
 export default {
   startServer: async (): Promise<void> => {
+    const randomNumber = Math.floor(Math.random() * 30 + 1);
     nock.cleanAll();
     http = await server.start({ port: 0 });
     const { port } = http.address();
@@ -33,22 +34,5 @@ export default {
       resolveWithFullResponse: true
     });
     return res;
-  },
-  setUpDb: async (next: any) => {
-    try {
-      await exec(`createdb testdb`);
-      await exec(`psql --file ${__dirname}/testdb.sql`);
-    } catch (err) {
-      console.error(`There was an error: ${err}`);
-    }
-    next();
-  },
-  cleanDb: async (next: any) => {
-    try {
-      await exec(`dropdb testdb`);
-    } catch (err) {
-      console.error(`There was an error with cleanup: ${err}`);
-    }
-    next();
   }
 };
