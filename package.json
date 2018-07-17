@@ -2,7 +2,7 @@
   "name": "stock-keeper",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon --watch '**/*.ts' --watch '**/*.json' --watch '**/*.graphql' --exec 'ts-node' src/app.ts",
+    "start": "nodemon src --watch src --exec ts-node -e ts,js,json,yml,graphql",
     "compile": "tsc --noEmit",
     "test": "jest --watchAll",
     "test-ci": "jest"
