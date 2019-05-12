@@ -9,7 +9,7 @@ A prerequisite is that you need to have Docker installed and running.
 
 - Clone the repo
 - `cd` into the directory
-- run `yarn` or `npm install`, whichever you prefer
+- run `npm install` to install dependencies
 - Then run `docker-compose up --build`
 
 You will then be able to run different GraphQL queries and mutations in the Playground at: [http://localhost:3000/](http://localhost:3000/)
@@ -38,4 +38,4 @@ mutation {
 
 ## Running the tests
 
-At the moment, there are just a couple of unit tests run through `npm test` or `yarn test`, depending on which package manager you use.
+At the moment, there are just a couple of unit tests run through `npm test`.
