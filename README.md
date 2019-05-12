@@ -1,5 +1,7 @@
 # Stock-keeper
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/freddyfallon/stock-keeper.svg)](https://greenkeeper.io/)
+
 A service that lets you view and add items into a postgres database using a GraphQL API.
 📦 🥚 🍏 🍎 🍍 🥛 🥔 🥦 🍖
 
